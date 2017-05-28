@@ -1,5 +1,9 @@
 // 堀哲也 2016/11/05
 
+// Copyright (c) 2016 Tetsuya Hori
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
+
 #include <stdio.h>
 
 int printProgress(int pos, int full){
