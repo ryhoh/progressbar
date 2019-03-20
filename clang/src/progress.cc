@@ -9,7 +9,7 @@
 
 #include "progress.h"
 
-Progress::Progress(int max)
+ryhoh_prgr::Progress::Progress(int max)
 {
     if (max < 1)
     {
@@ -21,11 +21,11 @@ Progress::Progress(int max)
     this->pos = 0;
 }
 
-Progress::~Progress()
+ryhoh_prgr::Progress::~Progress()
 {
 }
 
-std::string Progress::generateString()
+std::string ryhoh_prgr::Progress::generateString()
 {
 	const int bar_num = this->pos * BAR_LENGTH / this->max;
     std::string percent = std::to_string(this->pos * 100 / this->max);
@@ -45,18 +45,18 @@ std::string Progress::generateString()
 	return res;
 }
 
-void Progress::click()
+void ryhoh_prgr::Progress::click()
 {
     if (this->pos < this->max)
         this->pos++;
 }
 
 
-SimpleProgress::~SimpleProgress()
+ryhoh_prgr::SimpleProgress::~SimpleProgress()
 {
 }
 
-std::string SimpleProgress::generateString()
+std::string ryhoh_prgr::SimpleProgress::generateString()
 {
     const int bar_num = this->getPos() * BAR_LENGTH / this->getMax();
     std::string percent = std::to_string(this->getPos() * 100 / this->getMax());

@@ -19,39 +19,41 @@
 
 #include <string>
 
-
-class Progress
+namespace ryhoh_prgr
 {
-private:
-    int max;  /* 全作業工程の数 */
-    int pos;  /* 完了した作業工程の数 */
-    /* 常に 0 <= pos <= max を満たすこと */
+    class Progress
+    {
+    private:
+        int max;  /* 全作業工程の数 */
+        int pos;  /* 完了した作業工程の数 */
+        /* 常に 0 <= pos <= max を満たすこと */
 
-public:
-    Progress(int max);
-    virtual ~Progress();
-    virtual std::string generateString();
-    void click();
-    int getMax();
-    int getPos();
-};
+    public:
+        Progress(int max);
+        virtual ~Progress();
+        virtual std::string generateString();
+        void click();
+        int getMax();
+        int getPos();
+    };
 
-const int BAR_LENGTH = 20;
-const char DONE_CHAR = '*';
-const char YET_CHAR  = '-';
+    const int BAR_LENGTH = 20;
+    const char DONE_CHAR = '*';
+    const char YET_CHAR  = '-';
 
-inline int Progress::getMax() {return this->max;}
-inline int Progress::getPos() {return this->pos;}
+    inline int Progress::getMax() {return this->max;}
+    inline int Progress::getPos() {return this->pos;}
 
 
-// NUM表示のないシンプルなバージョン
-class SimpleProgress: public Progress
-{
-public:
-    // SimpleProgress(int max);
-    using Progress::Progress;
-    virtual ~SimpleProgress();
-    std::string generateString() override;
-};
+    // NUM表示のないシンプルなバージョン
+    class SimpleProgress: public Progress
+    {
+    public:
+        // SimpleProgress(int max);
+        using Progress::Progress;
+        virtual ~SimpleProgress();
+        std::string generateString() override;
+    };
+}
 
 #endif

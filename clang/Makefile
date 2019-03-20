@@ -1,15 +1,17 @@
-libprogress.a:	progress.o
-	ar r $@ progress.o
+libprogress.a:	src/progress.o
+	ar r $@ src/progress.o
 
-test:	test.cc progress.o
-	g++-8 -o $@ progress.o -lgtest -lgtest_main -lpthread test.cc && ./test
+testProgress:	test/testProgress.cc src/progress.o
+	g++-8 -o $@ src/progress.o test/testProgress.cc \
+	-lgtest -lgtest_main -lpthread \
+	&& ./$@
 
 # --
 
-progress.o:	progress.cc
-	g++-8 progress.cc -c
+progress.o:	src/progress.cc
+	g++-8 src/progress.cc -c -o src/$@
 
 # --
 
 clean:
-	rm -f progress.o test
+	rm -f src/progress.o testProgress

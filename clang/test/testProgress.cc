@@ -1,10 +1,11 @@
 // 作成 - 2019/03/17 堀哲也
 
 #include <gtest/gtest.h>
-#include "progress.h"
+#include "../src/progress.h"
 
 TEST(ProgressBarTest, constructTest)
 {
+    using ryhoh_prgr::Progress;
     Progress progress = Progress(10);
     ASSERT_EQ(progress.getMax(), 10);
     ASSERT_EQ(progress.getPos(),  0);
@@ -12,6 +13,7 @@ TEST(ProgressBarTest, constructTest)
 
 TEST(ProgressBarTest, generateStringTest)
 {
+    using ryhoh_prgr::Progress;
     Progress progress = Progress(10);
     ASSERT_EQ(
         progress.generateString(),
@@ -21,6 +23,7 @@ TEST(ProgressBarTest, generateStringTest)
 
 TEST(ProgressBarTest, clickTest)
 {
+    using ryhoh_prgr::Progress;
     Progress progress = Progress(10);
 
     progress.click();
@@ -46,6 +49,8 @@ TEST(ProgressBarTest, clickTest)
 
 TEST(SimpleProgressTest, constructTest)
 {
+    using ryhoh_prgr::Progress;
+    using ryhoh_prgr::SimpleProgress;
     Progress *progress = new SimpleProgress(10);
     ASSERT_EQ(progress->getMax(), 10);
     ASSERT_EQ(progress->getPos(),  0);
@@ -53,6 +58,8 @@ TEST(SimpleProgressTest, constructTest)
 
 TEST(SimpleProgressTest, generateStringTest)
 {
+    using ryhoh_prgr::Progress;
+    using ryhoh_prgr::SimpleProgress;
     Progress *progress = new SimpleProgress(10);
     ASSERT_EQ(
         progress->generateString(),
@@ -63,6 +70,8 @@ TEST(SimpleProgressTest, generateStringTest)
 
 TEST(SimpleProgressTest, clickTest)
 {
+    using ryhoh_prgr::Progress;
+    using ryhoh_prgr::SimpleProgress;
     Progress *progress = new SimpleProgress(10);
 
     progress->click();
